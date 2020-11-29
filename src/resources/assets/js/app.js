@@ -1,0 +1,6 @@
+Vue.component('Credential', require('./components/Credential/Credential.vue'))
+Vue.component('Credential', require('./components/Overview/Overview.vue'))
+Vue.component('SyncHistory', require('./components/SyncHistory/SyncHistory.vue'))
+Vue.component('NewSyncObject', require('./components/SyncObject/NewSyncObject.vue'))
+Vue.component('SyncObjectList', require('./components/SyncObject/SyncObjectList.vue'))
+window.packageNameEvent = new Vue()
