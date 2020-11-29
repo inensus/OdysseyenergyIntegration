@@ -1,28 +1,30 @@
 {
-    "name": "kemal/odyssey-s3-integration",
-    "description": "Enables to push data to OdysseyEnergy via AmazonS3",
-    "type": "package",
-    "require": {
-        "aws/aws-sdk-php": "^3.151"
+  "name": "inensus/odyssey-s3-integration",
+  "description": "Enables to push data to OdysseyEnergy via AmazonS3",
+  "type": "package",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kemal Ozkan",
+      "email": "ako@inensus.com"
     },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Kemal",
-            "email": "alchalade@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "autoload": {
-        "psr-4": {
-            "Inensus\\OdysseyS3Integration\\": "src"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Inensus\\OdysseyS3Integration\\OdysseyS3IntegrationServiceProvider"
-            ]
-        }
+    {
+      "name": "kamuran engin",
+      "email": "ke@inensus.com",
+      "role": "Developer"
     }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "Inensus\\OdysseyS3Integration\\": "src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Inensus\\OdysseyS3Integration\\Providers\\OdysseyS3IntegrationServiceProvider"
+      ]
+    }
+  }
 }
