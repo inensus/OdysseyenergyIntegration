@@ -8,15 +8,12 @@ use Illuminate\Support\Facades\Log;
 use Inensus\OdysseyS3Integration\Exceptions\AutorizationValidationFailedException;
 use Inensus\OdysseyS3Integration\Http\Requests\S3AuthorizationCreateRequest;
 use Inensus\OdysseyS3Integration\Http\Resources\S3Resource;
-use Inensus\OdysseyS3Integration\Models\S3SyncModel;
 use Inensus\OdysseyS3Integration\Services\S3AuthorizationService;
 use Inensus\OdysseyS3Integration\Services\S3SyncService;
 
 class S3AuthController extends Controller
 {
-    /**
-     * @var S3SyncModel
-     */
+
     private $s3Model;
     /**
      * @var S3SyncService
@@ -38,15 +35,16 @@ class S3AuthController extends Controller
         return $this->authorizationService->list();
     }
 
+    public function show():S3Resource
+    {
+        return new S3Resource($this->authorizationService->show());
+    }
+
+
     public function store(S3AuthorizationCreateRequest $request): S3Resource
     {
-        try {
-            $authorization = $this->authorizationService->createAuthorization($request->all());
-        } catch (AutorizationValidationFailedException $e) {
-            Log::critical("Authorization creation failed", ["message" => $e->getMessage()]);
-            $authorization = ['message' => $e->getMessage()];
-        }
-        return new S3Resource($authorization);
+        return new S3Resource($this->authorizationService->saveS3Credentials($request->all()));
     }
+
 }
 

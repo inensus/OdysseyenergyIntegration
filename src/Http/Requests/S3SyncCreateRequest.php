@@ -5,6 +5,7 @@ namespace Inensus\OdysseyS3Integration\Http\Requests;
 
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class S3SyncCreateRequest extends FormRequest
 {
@@ -18,7 +19,8 @@ class S3SyncCreateRequest extends FormRequest
     {
         return [
             'bucket_name' => 'required',
-            'object_path' => 'required',
+            'object_location' => 'required',
+            'tag_id' => ['required',Rule::unique('odyssey_s3_sync_objects')->ignore($this->id)],
         ];
     }
 }

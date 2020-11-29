@@ -19,6 +19,7 @@ class S3AuthorizationCreateRequest extends FormRequest
         return [
             'access_key' => 'required',
             'access_token' => 'required',
+            'region' => 'required',
         ];
     }
 }
