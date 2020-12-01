@@ -1,5 +1,5 @@
 <?php
 return [
-    'prefix' => 's3-integration',
+    'prefix' => 'odyssey-s3',
     'middleware' => ['api'],
 ];
